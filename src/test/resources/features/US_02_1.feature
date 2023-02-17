@@ -1,4 +1,4 @@
-@wip
+
 Feature: US02 Ana sayfaya gidildiğnde çeşitli başlıkları, ögeleri görebilmeli
 
   Scenario: TC01 Linklerin gorunur oldugunu dogrular
