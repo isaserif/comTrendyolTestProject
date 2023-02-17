@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
@@ -13,6 +14,9 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+
+import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 
@@ -42,9 +46,9 @@ MethodPage methodPage=new MethodPage();
     }
     @Then("Sayfayi kapatır")
     public void sayfayi_kapatır() {
-    Driver.getDriver();
-    Driver.closeDriver();
 
+       // Driver.closeDriver();
+        Driver.quitDriver();
     }
     //*********************************************************************
     @Then("Trendyol  gorulur oldugunu dogrular")
@@ -152,20 +156,64 @@ MethodPage methodPage=new MethodPage();
     public void ana_sayfaya_geri_döner() {
         Driver.getDriver().navigate().back();
     }
+    String ilkSayfaHanleDegeri;
     @Then("Kariyer linkine click yapar ve ilgigli sayfaya gidildigini dogrular")
     public void kariyer_linkine_click_yapar_ve_ilgigli_sayfaya_gidildigini_dogrular() {
 homePage.kariyerLinkWebElement.click();
 assertTrue(homePage.kariyerSayfaLinkWebElement.isDisplayed());
+  ilkSayfaHanleDegeri=  Driver.getDriver().getWindowHandle();
+
     }
     @Then("Trendyol'da Satış Yap click yapar ve ilgigli sayfaya gidildigini dogrular")
     public void trendyol_da_satış_yap_click_yapar_ve_ilgigli_sayfaya_gidildigini_dogrular() {
     homePage.trendyoldaSatisYapLinkWebElement.click();
-        ReusableMethods.bekle(2);
-    assertTrue(homePage.trendyolSaticiPaneliSayfaLinkWebElement.isDisplayed());
+    ReusableMethods.bekle(1);
+   Set<String>tumHandleDegerleri= Driver.getDriver().getWindowHandles();
+   String ikinciSayfaHandleDegeri = "";
+        for (String handle : tumHandleDegerleri
+             ) {
+            if (handle.equals(ilkSayfaHanleDegeri)){
+
+            }else {
+                ikinciSayfaHandleDegeri=handle;
+            }
+
+            }
+        Driver.getDriver().switchTo().window(ikinciSayfaHandleDegeri);
+        assertTrue(homePage.trendyolSaticiPaneliSayfaLinkWebElement.isDisplayed());
+    }
+//*********************************************************************
+    @Then("About as  sayfasına gidildiğini doğrular")
+    public void about_as_sayfasına_gidildiğini_doğrular() {
+        homePage.aboutUsLinkWebElement.click();
+        ReusableMethods.bekle(1);
+        assertTrue(homePage.aboutUsSayfaLinkWebElement.isDisplayed());
+    }
+    @Then("Who we are sayfasına gidildiğini doğrular")
+    public void who_we_are_sayfasına_gidildiğini_doğrular() {
+        homePage.whoWeAreLinkWebElement.click();
+        ReusableMethods.bekle(1);
+        assertTrue(homePage.whoWeAreSayfaLinkWebElement.isDisplayed());
+
+    }
+    @Then("Careers sayfasına gidildiğini doğrular")
+    public void careers_sayfasına_gidildiğini_doğrular() {
+        homePage.careersLinkWebElement.click();
+        ReusableMethods.bekle(1);
+        assertTrue(homePage.careersSayfaLinkWebElement.isDisplayed());
+
+    }
+    @Then("Contact us sayfasına gidildiğini doğrular")
+    public void contact_us_sayfasına_gidildiğini_doğrular() {
+        homePage.contactUsLinkWebElement.click();
+        ReusableMethods.bekle(1);
+        assertTrue(homePage.contactUsSayfaLinkWebElement.isDisplayed());
+
     }
 
 
-
-
-
+    @And("Reklam kapatir")
+    public void reklamKapatir() {
+        actions.moveToElement(homePage.reklamKapatElement).click().perform();
+    }
 }

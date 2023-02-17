@@ -93,16 +93,41 @@ public class HomePage {
     public WebElement iletisimLinkWebElement;
     @FindBy(xpath = "//h4[text()='İletişim']")
     public WebElement iletisimSayfaLinkWebElement;
-    @FindBy(xpath = "//a[text()='Trendyol'da Satış Yap']")
+    @FindBy(xpath = "(//a[@target='_blank'])[1]")
     public WebElement trendyoldaSatisYapLinkWebElement;
     @FindBy(xpath = "//div[text()=' Satıcı Paneli ']")
     public WebElement trendyolSaticiPaneliSayfaLinkWebElement;
 
+//*******************About Us**************************************************
+
+    @FindBy(xpath = "//h4[text()='About us']")
+    public WebElement aboutUsLinkWebElement;
+
+    @FindBy(xpath = "//h2[text()='Who we are']")
+    public WebElement aboutUsSayfaLinkWebElement;
+
+    @FindBy(xpath = "//a[text()='Who we are']")
+    public WebElement whoWeAreLinkWebElement;
+
+    @FindBy(xpath = "//span[text()='Business Info']")
+    public WebElement whoWeAreSayfaLinkWebElement;
+
+    @FindBy(xpath = "//a[text()='Careers']")
+    public WebElement careersLinkWebElement;
+
+    @FindBy(xpath = "//a[text()='Join us']")
+    public WebElement careersSayfaLinkWebElement;
+
+    @FindBy(xpath = "//a[text()='Contact us']")
+    public WebElement contactUsLinkWebElement;
+
+    @FindBy(xpath = "//a[text()='Live Chat - TR']")
+    public WebElement contactUsSayfaLinkWebElement;
 
 
-
-
-
+    @FindBy(xpath = "//*[@id='Combined-Shape']")
+    public WebElement reklamKapatElement;
+//************************************************************
 
     /*
 
