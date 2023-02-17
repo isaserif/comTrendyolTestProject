@@ -11,7 +11,7 @@ import page.HomePage;
 import page.MethodPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-
+import utilities.ReusableMethods;
 
 
 import static org.junit.Assert.assertTrue;
@@ -46,6 +46,7 @@ MethodPage methodPage=new MethodPage();
     Driver.closeDriver();
 
     }
+    //*********************************************************************
     @Then("Trendyol  gorulur oldugunu dogrular")
     public void trendyol_gorulur_oldugunu_dogrular() {
         assertTrue(homePage.trendyolLogoElemet.isDisplayed());
@@ -124,4 +125,47 @@ MethodPage methodPage=new MethodPage();
     public void sayfayiBirSayfaKaydir() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
     }
+
+    //***************************************************************************
+    @Then("Sayfayi en alta indirir")
+    public void sayfayi_en_alta_indirir() {
+        actions.sendKeys(Keys.END).perform();
+        ReusableMethods.bekle(2);
+    }
+    @Then("Trendyol linkinin göründüğünü doğrular")
+    public void trendyol_linkinin_göründüğünü_doğrular() {
+    assertTrue(homePage.trendyolLinkWebElement.isDisplayed());
+
+
+    }
+    @Then("Trenyol Linkine click yapinca sayfa basina gider ve dogrular")
+    public void trenyol_linkine_click_yapinca_sayfa_basina_gider_ve_dogrular() {
+        homePage.trendyolLinkWebElement.click();
+        assertTrue(homePage.trendyolLogoElemet.isDisplayed());
+    }
+    @Then("Biz kimiz linkine click yapar ve ilgigli sayfaya gidildigini dogrular")
+    public void biz_kimiz_linkine_click_yapar_ve_ilgigli_sayfaya_gidildigini_dogrular() {
+            homePage.bizKimizLinkWebElement.click();
+            assertTrue(homePage.bizKimizSayfaLinkWebElement.isDisplayed());
+    }
+    @Then("Ana sayfaya geri döner")
+    public void ana_sayfaya_geri_döner() {
+        Driver.getDriver().navigate().back();
+    }
+    @Then("Kariyer linkine click yapar ve ilgigli sayfaya gidildigini dogrular")
+    public void kariyer_linkine_click_yapar_ve_ilgigli_sayfaya_gidildigini_dogrular() {
+homePage.kariyerLinkWebElement.click();
+assertTrue(homePage.kariyerSayfaLinkWebElement.isDisplayed());
+    }
+    @Then("Trendyol'da Satış Yap click yapar ve ilgigli sayfaya gidildigini dogrular")
+    public void trendyol_da_satış_yap_click_yapar_ve_ilgigli_sayfaya_gidildigini_dogrular() {
+    homePage.trendyoldaSatisYapLinkWebElement.click();
+        ReusableMethods.bekle(2);
+    assertTrue(homePage.trendyolSaticiPaneliSayfaLinkWebElement.isDisplayed());
+    }
+
+
+
+
+
 }
