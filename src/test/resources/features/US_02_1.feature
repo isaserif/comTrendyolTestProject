@@ -37,4 +37,4 @@ Feature: US02 Ana sayfaya gidildiğnde çeşitli başlıkları, ögeleri görebi
     Then Cok Satan urunler   gorulur oldugunu dogrular
     Then sayfayi bir sayfa kaydir
     Then Yildizli Urunler    gorulur oldugunu dogrular
-And Sayfayi kapatır
+    And Sayfayi kapatır
