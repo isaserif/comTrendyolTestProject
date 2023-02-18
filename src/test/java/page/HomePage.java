@@ -128,6 +128,46 @@ public class HomePage {
     @FindBy(xpath = "//*[@id='Combined-Shape']")
     public WebElement reklamKapatElement;
 //************************************************************
+@FindBy(xpath = "//h4[text()='Yardım']")
+    public WebElement yardimLinkWebElement;
+
+@FindBy(xpath = "//h2[text()='Yardım']")
+    public WebElement yardimSayfaLinkWebElement;
+
+@FindBy(xpath = "//a[text()='Sıkça Sorulan Sorular']")
+    public WebElement sikcaSorularLinkWebElement;
+
+
+@FindBy(xpath = "(//span[text()='Popüler Sorular'])[2]")
+    public WebElement populerSorularSayfaLinkWebElement;
+
+
+@FindBy(xpath = "//a[text()='Nasıl İade Edebilirim']")
+    public WebElement nasilIadeEdebilirimLinkWebElement;
+
+@FindBy(xpath = "(//span[text()='İade'])[2]")
+    public WebElement nasilIadeEdebilirimSayfaLinkWebElement;
+
+@FindBy(xpath = "//a[text()='İşlem Rehberi']")
+    public WebElement islemRehberiLinkWebElement;
+
+@FindBy(xpath = "(//span[text()='İşlem Rehberi'])[2]")
+    public WebElement islemRehberiSayfaLinkWebElement;
+
+//****************************************************
+    @FindBy(xpath = "//a[text()='Trendyol Fırsatları']")
+    public WebElement trendyolFirsatLinkWebElement;
+
+    @FindBy(xpath = "(//div[@class='top-banner masaustu'])[1]")
+    public WebElement trendyolFirsatSayfaLinkWebElement;
+
+//***************************************************
+    @FindBy(xpath = "//a[@class='footer__wrapper--socialImage app app-ios']")
+    public WebElement appStoreLinkElement;
+
+    @FindBy(xpath = "//a[@data-analytics-title='apple home']")
+    public WebElement appleHomeLinkElement;
+
 
     /*
 
